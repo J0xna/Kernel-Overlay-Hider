@@ -19,6 +19,8 @@ As an author of this project, I take no liability of damages caused to your comp
 
 RUNNING THIS PROJECT UNMODIFIED WILL CAUSE A BLUE SCREEN OF DEATH INEVITABLY BECAUSE I DO NOT RESTORE THE WINDOW, I LEAVE IT UP TO THE READER TO SOLVE SO ITS NOT EASY TO COPY+PASTE.
 
-I do not want this project to be a 1:1 copy paste for possible game cheaters, this is a learning resource. If you want this to be reliable, you need to fix it yourself like I have done.
+I do not want this project to be a 1:1 copy paste for possible game cheaters, this is a learning resource. If you want this to be reliable, you need to fix it yourself.
 
 That's it for today, hope you like this release! Make sure to leave a star if you found this helpful.
+
+Credits to big boss luuk and peksi
