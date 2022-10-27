@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dkom_overlay", "dkom_overla
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "usermode", "usermode\usermode.vcxproj", "{FCF73A40-41D6-41D7-B018-FC15E6FFED9E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EnumWindows_TEST", "EnumWindows_TEST\EnumWindows_TEST.vcxproj", "{100EC34C-1C55-4261-90DF-C84114571066}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM64 = Debug|ARM64
@@ -47,6 +49,18 @@ Global
 		{FCF73A40-41D6-41D7-B018-FC15E6FFED9E}.Release|x64.Build.0 = Release|x64
 		{FCF73A40-41D6-41D7-B018-FC15E6FFED9E}.Release|x86.ActiveCfg = Release|Win32
 		{FCF73A40-41D6-41D7-B018-FC15E6FFED9E}.Release|x86.Build.0 = Release|Win32
+		{100EC34C-1C55-4261-90DF-C84114571066}.Debug|ARM64.ActiveCfg = Debug|x64
+		{100EC34C-1C55-4261-90DF-C84114571066}.Debug|ARM64.Build.0 = Debug|x64
+		{100EC34C-1C55-4261-90DF-C84114571066}.Debug|x64.ActiveCfg = Debug|x64
+		{100EC34C-1C55-4261-90DF-C84114571066}.Debug|x64.Build.0 = Debug|x64
+		{100EC34C-1C55-4261-90DF-C84114571066}.Debug|x86.ActiveCfg = Debug|Win32
+		{100EC34C-1C55-4261-90DF-C84114571066}.Debug|x86.Build.0 = Debug|Win32
+		{100EC34C-1C55-4261-90DF-C84114571066}.Release|ARM64.ActiveCfg = Release|x64
+		{100EC34C-1C55-4261-90DF-C84114571066}.Release|ARM64.Build.0 = Release|x64
+		{100EC34C-1C55-4261-90DF-C84114571066}.Release|x64.ActiveCfg = Release|x64
+		{100EC34C-1C55-4261-90DF-C84114571066}.Release|x64.Build.0 = Release|x64
+		{100EC34C-1C55-4261-90DF-C84114571066}.Release|x86.ActiveCfg = Release|Win32
+		{100EC34C-1C55-4261-90DF-C84114571066}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
