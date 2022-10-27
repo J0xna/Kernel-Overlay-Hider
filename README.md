@@ -14,7 +14,9 @@ My driver modifies the Flink and Blink so that our desired window handle will ne
 
 CAUTION:
 This project manipulates kernel objects and undocumented structures which can cause blue screen of death and PC damages if you don't know what you are doing.
-As an author of this project, I take no liability of damages caused to your computer because of this project, please use it as a learning resources and DO NOT RUN IT IF YOU DO NOT UNDERSTAND WHAT IT DOES.
+As an author of this project, I take no liability of damages caused to your computer because of this project.
+
+
 RUNNING THIS PROJECT UNMODIFIED WILL CAUSE A BLUE SCREEN OF DEATH INEVITABLY BECAUSE I DO NOT RESTORE THE WINDOW, I LEAVE IT UP TO THE READER TO SOLVE SO ITS NOT EASY TO COPY+PASTE.
 
 I do not want this project to be a 1:1 copy paste for possible game cheaters, this is a learning resource. If you want this to be reliable, you need to fix it yourself like I have done.
