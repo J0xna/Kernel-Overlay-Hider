@@ -17,6 +17,6 @@ As an author of this project, I take no liability of damages caused to your comp
 RUNNING THIS PROJECT UNMODIFIED WILL CAUSE A BLUE SCREEN OF DEATH INEVITABLY BECAUSE I DO NOT RESTORE THE WINDOW, I LEAVE IT UP TO THE READER TO SOLVE SO ITS NOT EASY TO COPY+PASTE.
 
 Why did I not make it restoreable / non bluescreening?
-I do not want this project to be a 1:1 copy paste for possible game cheaters, this is a learning resources.
+I do not want this project to be a 1:1 copy paste for possible game cheaters, this is a learning resource.
 
 That's it for today, hope you like this release! Make sure to leave a star if you found this helpful.
