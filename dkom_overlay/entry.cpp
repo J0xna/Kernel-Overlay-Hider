@@ -100,7 +100,6 @@ std::int64_t callback( comms_t* a1, void* a2 ) {
 
 	static comms_t buffer = { };
 	if ( ExGetPreviousMode( ) != UserMode || !util::memory_t::safe_copy( &buffer, a1, sizeof( comms_t )) || buffer.key != 0xCA ) {
-		log_e( "call wasn't ours...\n" );
 		return orig_callback( a1, a2 );
 	}
 
