@@ -28,6 +28,12 @@ bool handle_overlay( comms_t* ptr ) {
 		return false;
 	}
 
+	/* 
+	Exposing TAG_WND structure pointer of our hwnd
+	Note: If you're calling this export from a thread without Win32StartAddress, it will not work. 
+	Solutions: Attach to a process with a win32thread, dkom the win32startaddress of the target to your thread's win32startaddress.
+	*/
+
 	static const auto validate_hwnd = util::module_t::win32k_base->get_export< TAG_WND* ( * )( void* ) >( _( "ValidateHwnd" ) );
 
 	if ( !validate_hwnd ) {
@@ -35,6 +41,7 @@ bool handle_overlay( comms_t* ptr ) {
 		return false;
 	}
 
+	// Validating the kernel window handle
 	const auto our_wnd = validate_hwnd( ptr->window.handle );
 
 	if ( !our_wnd ) {
@@ -48,8 +55,10 @@ bool handle_overlay( comms_t* ptr ) {
 
 	Run this check on same winver Virtual Machine to validate offsets and prevent BSOD.
 	This check should return log of the offsets if it finds instance->Next->Previous or instance->Previous->Next ( 2 matches ).
+
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	const auto w = reinterpret_cast< std::uintptr_t >( our_wnd );
-		for ( uint32_t i = 0; i < 0x100; i += 0x8 ) {
+		for ( std::uint32_t i = 0; i < 0x100; i += 0x8 ) {
 			if ( MmIsAddressValid( reinterpret_cast< void* >( w + i ) ) ) {
 				auto w_2 = *( std::uintptr_t* )( w + i );
 				for ( std::uint32_t x = 0; x < 0x100; x += 0x8 ) {
@@ -61,6 +70,7 @@ bool handle_overlay( comms_t* ptr ) {
 				}
 			}
 		}
+	^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 	*/
 
 	// Sanity check to avoid bsod.
@@ -79,15 +89,15 @@ bool handle_overlay( comms_t* ptr ) {
 		return false;
 	}
 
-	log_s( "overlay handled successfully!\n" );
-
-
 	// Simple as that, we have achieved dkomed window, now up-to reader: you have to fix BSODs when you close the software owning the window handle. Don't add me to ask how to do it :=)
+	log_s( "overlay handled successfully!\n" );
 
 	return true;
 }
 
 std::int64_t callback( comms_t* a1, void* a2 ) {
+	// for this example i cba to make communication code enum, 1 is enough for the POC.
+
 	static comms_t buffer = { };
 	if ( ExGetPreviousMode( ) != UserMode || !util::memory_t::safe_copy( &buffer, a1, sizeof( comms_t )) || buffer.key != 0xCA ) {
 		log_e( "call wasn't ours...\n" );
@@ -103,6 +113,8 @@ NTSTATUS entry( ) {
 
 	if ( !util::module_t::init( ) )
 		return STATUS_UNSUCCESSFUL;
+
+	//Forgive me for using a data pointer to communicate, the caller thread will 100% have a thread context of a win32 thread which is required to process the overlay with this method.
 
 	const auto ptr = rva( util::module_t::win32k->find_pattern( _( "\x48\x8B\x05\xFD\x6F\x05\x00\x48\x85\xC0" ), _( "xxxxxx?xxx" ) ), 7 );
 
