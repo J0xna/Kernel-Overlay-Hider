@@ -1,13 +1,13 @@
 KERNEL OVERLAY HIDER (Direct Kernel Object Manipulation)
 
+
+
 Tested on: BattlEye over the period of 3 months
 
-Why did I make this project?
 This project was mainly made out of curiosity towards how Windows handles the windows in kernel.
-I also wanted to learn how to hide the window from possible enumerations and hide from anti cheats.
+I also wanted to learn how to hide the window from possible enumerations and anti cheats.
 
-What does it do?
-This project gets a pointer to an undocumented, non symbol structure (TAG_WND) then modifies the members to make your window invisible from possible HWND scans.
+This project gets a pointer to an undocumented structure TAG_WND, then modifies the members to make your window invisible from possible HWND scans.
 The structures hold two particularly interesting members, Next and Previous. These can be thought as Flink and Blink in a linked list Microsoft loves.
 My driver modifies the Flink and Blink so that our desired window handle will never be in the list, making it invisible to enumerations and window callbacks.
 
@@ -16,7 +16,6 @@ This project manipulates kernel objects and undocumented structures which can ca
 As an author of this project, I take no liability of damages caused to your computer because of this project, please use it as a learning resources and DO NOT RUN IT IF YOU DO NOT UNDERSTAND WHAT IT DOES.
 RUNNING THIS PROJECT UNMODIFIED WILL CAUSE A BLUE SCREEN OF DEATH INEVITABLY BECAUSE I DO NOT RESTORE THE WINDOW, I LEAVE IT UP TO THE READER TO SOLVE SO ITS NOT EASY TO COPY+PASTE.
 
-Why did I not make it restoreable / non bluescreening?
-I do not want this project to be a 1:1 copy paste for possible game cheaters, this is a learning resource.
+I do not want this project to be a 1:1 copy paste for possible game cheaters, this is a learning resource. If you want this to be reliable, you need to fix it yourself like I have done.
 
 That's it for today, hope you like this release! Make sure to leave a star if you found this helpful.
