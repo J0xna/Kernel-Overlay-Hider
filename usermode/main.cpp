@@ -12,7 +12,6 @@ std::int64_t (__fastcall* kernel_call)(void*, void*) = nullptr;
 
 struct comms_t {
 	std::uint32_t key;
-	bool val;
 
 	struct {
 		void* handle;

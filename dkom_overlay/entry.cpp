@@ -8,11 +8,9 @@ std::int64_t (__fastcall* orig_callback)(void*, void*) = nullptr;
 
 struct comms_t {
 	std::uint32_t key;
-	bool val;
 
 	struct {
 		void* handle;
-		std::uint8_t flags;
 	}window;
 };
 
